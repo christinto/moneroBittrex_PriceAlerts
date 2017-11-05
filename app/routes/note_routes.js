@@ -52,6 +52,7 @@ module.exports = function(app, db) {
     //mongo method cursor.toArray.. https://docs.mongodb.com/manual/reference/method/cursor.toArray/
     //%j https://stackoverflow.com/questions/26266232/j-specifier-in-console-log-excludes-some-properties
     // this part creates the lastPrices variable and pushes to consoe or u..
+    //limits and sort https://docs.mongodb.com/manual/reference/limits/
       cursor.toArray(function(err, results) {
         if (err) throw err;
         console.log('Previous prices: %j', results);
