@@ -1,0 +1,66 @@
+<!-- angular seaerches for PriceApp in our app.js in public folder-->
+<html ng-app="PriceApp">
+
+	<head>
+		<title>CoinTree Price app!</title>
+		<!-- from downloading from https://angularjs.org/ The script tag downloads javascript and runs it
+		//doesn't get downloaded or processed by node at all.. pure browser client end -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+		<script src="/bower_components/angular-percentage-filter/percentage.js"></script>
+		<style>
+	img { 
+    width:100%; 
+		}	
+		</style>
+		<link rel="stylesheet" type="text/css" href="/assets/css/mystyle.css">
+	</head>
+
+	<body>
+	<h1 style="font-size:20px;" align="center" class="italic">Bitcoin Price App!</h1>
+		<div ng-controller="priceCtrl">
+
+		<p>
+		Current Bitcoin Price $AUD : {{currentprice}}
+		<br>
+		Last Bitcoin Price $AUD : {{lastprice}}
+		<br>
+		BTC/$AUD Price %age change  : {{percentagechange | number:5}}%
+		<!-- inbuilt number directive another way to keep to x amount of decimals places-->
+		<br>
+		<br>
+		Price %age change Since Last App Startup : {{percentagechangestart | number:5}}%
+		<br>
+		</p>
+		<br>
+
+<!-- Below code is for the textbox. Refer to example on angular.io // Want input type="number"-->
+<form name="myForm">
+		<label> Please enter your preferred BTC Price in ($aud): <input type="number" name="input" ng-model="priceEntry.numberEnter" ng-pattern="priceEntry.numberPattern" required ng-trim="false">
+	   </label>
+	<div role="alert">
+    <span class="error" ng-show="myForm.input.$error.required">
+      Price Required!</span>
+    <span class="error" ng-show="myForm.input.$error.pattern">
+      Single value only!</span>
+  </div>
+  <code>Price difference from your preferred BTC price = {{priceEntry.numberEnter - currentprice }}</code><br/>
+  <code>myForm.input.$valid = {{myForm.input.$valid}}</code><br/>
+  <code>myForm.input.$error = {{myForm.input.$error}}</code><br/>
+  <code>myForm.$valid = {{myForm.$valid}}</code><br/>
+  <code>myForm.$error.required = {{!!myForm.$error.required}}</code><br/>
+ </form>
+		<div>
+		
+			* Price refreshes every 30 seconds
+			<br>
+			
+		</div>
+		
+<img src="/assets/images/totheMoon!b&w.jpg" alt="HTML5 Icon" style="width:400px;height:180px;">
+		</div>
+	 <script>
+	 </script>
+
+	 <script src="/assets/js/app.js"></script>
+	</body>
+</html>

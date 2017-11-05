@@ -1,0 +1,10 @@
+h1 {
+    color: lightgreen;
+    margin-left: 20px;
+    font-family: "Arial", Verdana, serif;
+}
+
+body {
+background-image: url("http://www.rtwbackpackers.com/wp-content/uploads/2016/08/stoked_surf3.jpg");
+background-position: center left
+};
